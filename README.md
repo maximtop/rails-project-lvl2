@@ -1,9 +1,9 @@
-# README
+# Collective blog (hexlet-project-lvl2)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Hosted on heroku
+[blog-maximtop.herokuapp.com](https://blog-maximtop.herokuapp.com/)
 
-Things you may want to cover:
+## TODO
 
 * Ruby version
 
