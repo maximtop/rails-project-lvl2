@@ -53,8 +53,8 @@ group :test do
 end
 
 group :production do
-  # Use pg as the database for Active Record
-  gem 'pg', '~> 0.18'
+  # Use postgresql as the database for Active Record
+  gem 'pg', '~> 1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
