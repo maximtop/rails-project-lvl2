@@ -1,4 +1,10 @@
 Documentation:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
 require: rubocop-rails

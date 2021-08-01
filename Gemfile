@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 
 # Templating
-gem "slim-rails"
+gem 'slim-rails'
 
 # Styling
 gem 'bootstrap'
