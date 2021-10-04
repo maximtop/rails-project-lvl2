@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   def index
     @posts = Post.all
@@ -7,7 +9,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build
   end
 
-  # TODO add body validation to be not shorter than 50 symbols
+  # TODO: add body validation to be not shorter than 50 symbols
   def create
     @post = current_user.posts.build(post_params)
 
