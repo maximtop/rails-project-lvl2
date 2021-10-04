@@ -1,22 +1,20 @@
-.container.mb-2
-  .py-2.border-bottom
-    .navbar.navbar-expand-md.navbar-light
-      a.navbar-brand.me-md-4(href='/')
-        = 'Collective Blog'
+.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='/')
+    = 'Collective Blog'
 
-      #navbarToggler.navbar-collapse.collapse
-        ul.navbar-nav.ms-auto
-          - if user_signed_in?
-            li.nav-item
-              = link_to new_post_path, class: 'nav-link text-dark' do
-                =< 'Create post'
-            li.nav-item
-              = link_to destroy_user_session_path, class: 'nav-link text-dark', :method => :delete do
-                =< 'Sign out'
-          - else
-            li.nav-item
-              = link_to user_session_path, class: 'nav-link text-dark' do
-                =< 'Log in'
-            li.nav-item
-              = link_to new_user_registration_path, class: 'nav-link text-dark' do
-                =< 'Sign up'
+  div.collapse.navbar-collapse
+    ul.navbar-nav.ms-auto
+      - if user_signed_in?
+        li.nav-item
+          = link_to new_post_path, class: 'nav-link' do
+            =< 'Create post'
+        li.nav-item
+          = link_to destroy_user_session_path, class: 'nav-link', :method => :delete do
+            =< 'Sign out'
+      - else
+        li.nav-item
+          = link_to user_session_path, class: 'nav-link' do
+            =< 'Log in'
+        li.nav-item
+          = link_to new_user_registration_path, class: 'nav-link' do
+            =< 'Sign up'

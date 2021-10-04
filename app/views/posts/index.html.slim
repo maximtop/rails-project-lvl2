@@ -1,4 +1,17 @@
 = content_for :title do
   = 'Blog'
-  - @posts.each do |post|
-    div = post.title
+
+- @posts.each do |post|
+  div.card.mb-3
+    div.card-body
+      h5.card-title
+        = post.title
+      div.card-text.mb-2
+        = post.body
+      div.text-end.small.mt-auto
+        span.me-3.text-muted
+          = "Понравилось: 6"
+        span.me-3.text-muted
+          = "3 месяца"
+        span.text-muted
+          = "maximtop@gmail.com"
