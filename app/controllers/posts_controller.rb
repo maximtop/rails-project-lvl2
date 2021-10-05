@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build
   end
 
-  # TODO add breadcrumbs
+  # TODO: add breadcrumbs
   def show; end
 
   # TODO: add body validation to be not shorter than 50 symbols
