@@ -5,7 +5,8 @@
   div.card.mb-3
     div.card-body
       h5.card-title
-        = post.title
+        = link_to post do
+          = post.title
       div.card-text.mb-2
         = post.body
       div.text-end.small.mt-auto

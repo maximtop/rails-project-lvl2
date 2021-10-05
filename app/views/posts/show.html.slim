@@ -1,0 +1,14 @@
+= content_for :title do
+  = @post.title
+
+p
+  = @post.body
+
+div
+  span
+    = @post.user.email
+  span
+    = @post.created_at
+  span
+    // TODO add real likes counter
+    = "Count of likes"
