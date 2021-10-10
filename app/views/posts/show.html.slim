@@ -14,3 +14,10 @@ div
     = "Count of likes"
 
 == render('comments_form')
+
+div.pt-4.card
+  - @post.comments.each do |comment|
+    div.card
+      div.card-header
+        = comment.user.email
+      = comment.content

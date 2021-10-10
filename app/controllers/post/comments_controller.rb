@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-module Posts
+class Post
   class CommentsController < ApplicationController
     before_action :set_post
 
     def create
-      @comment = @post.comments.build
+      @comment = @post.comments.build(comment_params)
+      @comment.user_id = current_user.id
 
       if @comment.save
         redirect_to @post, notice: 'Comment was successfully created.'
@@ -21,7 +22,8 @@ module Posts
     end
 
     def comment_params
-      params.require(:post_comment).permit(:body)
+      params.require(:post_comment).permit(:content)
     end
   end
 end
+
