@@ -36,9 +36,13 @@ gem 'slim-rails'
 
 # Styling
 gem 'bootstrap'
+gem 'jquery-rails'
 
 # Forms
 gem 'simple_form'
+
+# Tree like structure of the comments
+gem 'ancestry'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

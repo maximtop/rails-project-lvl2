@@ -15,9 +15,27 @@ div
 
 == render('comments_form')
 
-div.pt-4.card
+div.pt-4
   - @post.comments.each do |comment|
-    div.card
-      div.card-header
-        = comment.user.email
-      = comment.content
+    / TODO select only existing comments, do not select comments build for form
+    - if comment.user and !comment.has_parent?
+      div.card
+        div.card-header
+          = comment.user.email
+        div.card-body
+          div
+            = comment.content
+          div
+            - if comment.has_children?
+              - comment.children.each do |child_comment|
+                div.small
+                  hr
+                  = child_comment.user.email
+                  = child_comment.created_at
+                  = child_comment.content
+          div
+            button.btn.btn-link data-target="form-wrapper-#{comment.id}" type="button" data-toggle="collapse"
+              = "Reply"
+            div.collapse id="form-wrapper-#{comment.id}"
+              div.card.card-body
+                = "Form"

@@ -22,7 +22,7 @@ class Post
     end
 
     def comment_params
-      params.require(:post_comment).permit(:content)
+      params.require(:post_comment).permit(:content, :ancestry)
     end
   end
 end
