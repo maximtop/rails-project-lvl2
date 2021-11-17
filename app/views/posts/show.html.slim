@@ -11,7 +11,7 @@ div
     = @post.created_at
   span
     // TODO add real likes counter
-    = "Count of likes"
+    | Count of likes
 
 == render('comments_form')
 
@@ -25,17 +25,15 @@ div.pt-4
         div.card-body
           div
             = comment.content
-          div
-            - if comment.has_children?
-              - comment.children.each do |child_comment|
-                div.small
-                  hr
-                  = child_comment.user.email
-                  = child_comment.created_at
-                  = child_comment.content
-          div
-            button.btn.btn-link data-target="form-wrapper-#{comment.id}" type="button" data-toggle="collapse"
-              = "Reply"
+          - if comment.has_children?
+            div
+            - comment.children.each do |child_comment|
+              div.small
+                = child_comment.user.email
+                = child_comment.created_at
+                = child_comment.content
+          button.btn.btn-link aria-controls="form-wrapper-#{comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{comment.id}" data-bs-toggle="collapse" type="button"
+            | Reply
             div.collapse id="form-wrapper-#{comment.id}"
-              div.card.card-body
-                = "Form"
+              .card.card-body
+                | Form
