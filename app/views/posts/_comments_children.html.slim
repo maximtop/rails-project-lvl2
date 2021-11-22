@@ -1,0 +1,16 @@
+- children.each do |children_comment|
+  div.small
+    span.me-1
+      = children_comment.user.email
+    span
+      = children_comment.created_at
+    p
+      = children_comment.content
+    hr
+    = if children_comment.has_children?
+      = render 'comments_children', children: children_comment.children
+    button.btn.btn-link.text-muted.btn-sm aria-controls="form-wrapper-#{children_comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{children_comment.id}" data-bs-toggle="collapse" type="button"
+      | Reply
+    div.collapse id="form-wrapper-#{children_comment.id}"
+      .card.card-body
+        = render 'comments_form', ancestry: children_comment.id

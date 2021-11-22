@@ -13,27 +13,21 @@ div
     // TODO add real likes counter
     | Count of likes
 
+legend Comments
 == render('comments_form')
 
 div.pt-4
   - @post.comments.each do |comment|
-    / TODO select only existing comments, do not select comments build for form
     - if comment.user and !comment.has_parent?
       div.card
         div.card-header
           = comment.user.email
         div.card-body
-          div
-            = comment.content
+          = comment.content
           - if comment.has_children?
-            div
-            - comment.children.each do |child_comment|
-              div.small
-                = child_comment.user.email
-                = child_comment.created_at
-                = child_comment.content
+            = render 'comments_children', children: comment.children
+        div.card-footer
           button.btn.btn-link aria-controls="form-wrapper-#{comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{comment.id}" data-bs-toggle="collapse" type="button"
             | Reply
-            div.collapse id="form-wrapper-#{comment.id}"
-              .card.card-body
-                | Form
+          div.collapse id="form-wrapper-#{comment.id}"
+            = render 'comments_form', ancestry: comment.id
