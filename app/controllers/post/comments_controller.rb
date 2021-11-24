@@ -6,6 +6,7 @@ class Post
 
     def create
       @comment = @post.comments.build(comment_params)
+      # FIXME: handle cases when user is undefined
       @comment.user_id = current_user.id
 
       if @comment.save
@@ -22,8 +23,7 @@ class Post
     end
 
     def comment_params
-      params.require(:post_comment).permit(:content, :ancestry)
+      params.require(:post_comment).permit(:content, :parent_id)
     end
   end
 end
-

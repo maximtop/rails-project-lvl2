@@ -25,9 +25,10 @@ div.pt-4
         div.card-body
           = comment.content
           - if comment.has_children?
-            = render 'comments_children', children: comment.children
+            div.small
+              = render 'comments_children', children: comment.children
         div.card-footer
           button.btn.btn-link aria-controls="form-wrapper-#{comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{comment.id}" data-bs-toggle="collapse" type="button"
             | Reply
           div.collapse id="form-wrapper-#{comment.id}"
-            = render 'comments_form', ancestry: comment.id
+            = render 'comments_form', parent_id: comment.id
