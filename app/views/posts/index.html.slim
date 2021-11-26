@@ -9,10 +9,10 @@
           = post.title
       div.card-text.mb-2
         = post.body
-      div.text-end.small.mt-auto
+      div.small.mt-auto
         span.me-3.text-muted
-          = "Понравилось: 6"
+          = "Liked: #{post.likes.count}"
         span.me-3.text-muted
-          = "3 месяца"
+          = time_ago_in_words(post.created_at)
         span.text-muted
-          = "maximtop@gmail.com"
+          = post.user.email

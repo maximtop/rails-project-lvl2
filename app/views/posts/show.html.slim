@@ -4,14 +4,17 @@
 p
   = @post.body
 
-div
-  span
-    = @post.user.email
-  span
-    = @post.created_at
-  span
-    // TODO add real likes counter
-    | Count of likes
+div.d-flex.flex-row.justify-content-between
+  div
+    span.me-2
+      = @post.user.email
+    span
+      = time_ago_in_words(@post.created_at)
+  div
+    span.me-2
+      = @post.likes.count
+    = link_to post_likes_url(post_id: @post.id) {:action => :create}, :method => :post do
+      i.fas.fa-thumbs-up
 
 legend Comments
 == render('comments_form')
