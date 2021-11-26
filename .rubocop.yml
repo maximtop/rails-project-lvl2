@@ -10,4 +10,7 @@ Metrics/BlockLength:
 Layout/LineLength:
   Enabled: false
 
+Style/AsciiComments:
+  Enabled: false
+
 require: rubocop-rails
