@@ -5,22 +5,22 @@
 ## Hosted on heroku
 [blog-maximtop.herokuapp.com](https://blog-maximtop.herokuapp.com/)
 
-## TODO
+## Development
+### Launch
+To launch project locally run:
+```
+make install
+make start
+```
 
-* Ruby version
+### Lint
+To lint your code run in the terminal:
+```
+make lint
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Test
+To run tests for project run in the terminal:
+```bash
+make test
+```
