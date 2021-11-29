@@ -14,7 +14,10 @@ div.d-flex.flex-row.justify-content-between
     span.me-2
       = @post.likes.count
     = link_to post_likes_url(post_id: @post.id) {:action => :create}, :method => :post do
-      i.fas.fa-thumbs-up
+      - if @post.likes.find { |l| l.user_id == current_user.id }
+        i.fas.fa-thumbs-up
+      - else
+        i.far.fa-thumbs-up
 
 legend Comments
 == render('comments_form')
