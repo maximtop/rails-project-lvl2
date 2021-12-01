@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class CommentsControllerTest < ActionDispatch::IntegrationTest
+class PostCommentsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   test 'should create comment' do
