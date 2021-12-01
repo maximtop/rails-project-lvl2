@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Post
+module Posts
   class LikesController < ApplicationController
     before_action :set_post
 

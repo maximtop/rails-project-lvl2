@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class PostCommentsControllerTest < ActionDispatch::IntegrationTest
+class CommentsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   test 'should create comment' do
@@ -12,8 +12,8 @@ class PostCommentsControllerTest < ActionDispatch::IntegrationTest
     sign_in(user)
 
     # TODO: do not let to create comment until signed in
-    assert_difference('Post::Comment.count') do
-      post post_comments_url(post_id: post.id), params: { post_comment: { content: 'comment content', parent_id: nil } }
+    assert_difference('Posts::Comment.count') do
+      post post_comments_url(post_id: post.id), params: { posts_comment: { content: 'comment content', parent_id: nil } }
     end
   end
 end

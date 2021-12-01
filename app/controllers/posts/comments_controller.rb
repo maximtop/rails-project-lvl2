@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Post
+module Posts
   class CommentsController < ApplicationController
     before_action :set_post
 
@@ -23,7 +23,7 @@ class Post
     end
 
     def comment_params
-      params.require(:post_comment).permit(:content, :parent_id)
+      params.require(:posts_comment).permit(:content, :parent_id)
     end
   end
 end

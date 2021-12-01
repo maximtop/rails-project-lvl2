@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class Post
+module Posts
   class Comment < ApplicationRecord
+    self.table_name = 'post_comments'
     has_ancestry
 
     belongs_to :post

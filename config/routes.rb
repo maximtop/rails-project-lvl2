@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :posts do
-    resources :comments, module: :post
-    resources :likes, module: :post
+    resources :comments, module: :posts
+    resources :likes, module: :posts
   end
 end
