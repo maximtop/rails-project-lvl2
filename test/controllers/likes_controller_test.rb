@@ -13,10 +13,10 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
     likes_count = post.likes.count
 
-    post post_likes_url(post_id: post.id), params: { post_like: {} }
+    post post_post_post_likes_url(post_id: post.id), params: { post_like: {} }
     assert_equal(post.likes.count, likes_count + 1)
 
-    post post_likes_url(post_id: post.id), params: { post_like: {} }
+    post post_post_post_likes_url(post_id: post.id), params: { post_like: {} }
     assert_equal(post.likes.count, likes_count)
   end
 
@@ -28,7 +28,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
     likes_count = post.likes.count
 
-    post post_likes_url(post_id: post.id)
+    post post_post_post_likes_url(post_id: post.id)
     assert_equal(post.likes.count, likes_count - 1)
   end
 end

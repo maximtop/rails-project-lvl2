@@ -2,9 +2,8 @@
 
 class User < ApplicationRecord
   has_many :posts, dependent: :nullify
-  has_many :comments, dependent: :nullify, class_name: 'Posts::Comment'
-  # TODO: как модель отличит эти лайки от других, если создать другую папку вроде post?
-  has_many :likes, dependent: :nullify, class_name: 'Posts::Like'
+  has_many :comments, dependent: :nullify
+  has_many :likes, dependent: :nullify
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
