@@ -7,7 +7,7 @@ p
 div.d-flex.flex-row.justify-content-between
   div
     span.me-2
-      = @post.user.email
+      = @post.creator.email
     span
       = time_ago_in_words(@post.created_at)
   div
