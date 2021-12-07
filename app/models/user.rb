@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :posts, foreign_key: :creator_id, dependent: :nullify
+  has_many :posts, foreign_key: :creator_id, inverse_of: :creator, dependent: :nullify
   has_many :post_comments, dependent: :nullify
   has_many :post_likes, dependent: :nullify
 
