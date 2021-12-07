@@ -12,9 +12,9 @@ div.d-flex.flex-row.justify-content-between
       = time_ago_in_words(@post.created_at)
   div
     span.me-2
-      = @post.likes.count
-    = link_to post_post_post_likes_url(post_id: @post.id) {:action => :create}, :method => :post do
-      - if @post.likes.find { |l| l.user_id == current_user.id }
+      = @post.post_likes.count
+    = link_to post_post_likes_url(post_id: @post.id) {:action => :create}, :method => :post do
+      - if @post.post_likes.find { |l| l.user_id == current_user.id }
         i.fas.fa-thumbs-up
       - else
         i.far.fa-thumbs-up
@@ -23,7 +23,7 @@ legend Comments
 == render('comments_form')
 
 div.pt-4
-  - @post.comments.each do |comment|
+  - @post.post_comments.each do |comment|
     - if comment.user and !comment.has_parent?
       div.card
         div.card-header

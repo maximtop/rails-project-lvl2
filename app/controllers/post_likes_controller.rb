@@ -4,10 +4,10 @@ class PostLikesController < ApplicationController
   before_action :set_post
 
   def create
-    likes = @post.likes.where(user_id: current_user.id)
+    likes = @post.post_likes.where(user_id: current_user.id)
 
     if likes.count.zero?
-      @like = @post.likes.build
+      @like = @post.post_likes.build
       @like.user_id = current_user.id
       @like.save
     else

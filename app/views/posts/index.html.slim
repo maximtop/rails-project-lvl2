@@ -11,7 +11,7 @@
         = post.body
       div.small.mt-auto
         span.me-3.text-muted
-          = "Liked: #{post.likes.count}"
+          = "Liked: #{post.post_likes.count}"
         span.me-3.text-muted
           = time_ago_in_words(post.created_at)
         span.text-muted
