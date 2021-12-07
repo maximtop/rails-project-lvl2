@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class LikesControllerTest < ActionDispatch::IntegrationTest
+class PostLikesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   test 'should create like' do
@@ -13,10 +13,10 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
     likes_count = post.post_likes.count
 
-    post post_post_likes_url(post_id: post.id), params: { post_like: {} }
+    post post_likes_url(post_id: post.id), params: { post_like: {} }
     assert_equal(post.post_likes.count, likes_count + 1)
 
-    post post_post_likes_url(post_id: post.id), params: { post_like: {} }
+    post post_likes_url(post_id: post.id), params: { post_like: {} }
     assert_equal(post.post_likes.count, likes_count)
   end
 
@@ -28,7 +28,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
     likes_count = post.post_likes.count
 
-    post post_post_likes_url(post_id: post.id)
+    post post_likes_url(post_id: post.id)
     assert_equal(post.post_likes.count, likes_count - 1)
   end
 end
