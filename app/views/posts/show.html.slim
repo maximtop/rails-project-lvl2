@@ -12,9 +12,9 @@ div.d-flex.flex-row.justify-content-between
       = time_ago_in_words(@post.created_at)
   div
     span.me-2
-      = @post.post_likes.count
+      = @post.likes.count
     = link_to post_likes_url(post_id: @post.id) {:action => :create}, :method => :post do
-      - if @post.post_likes.find { |l| l.user_id == current_user.id }
+      - if @post.likes.find { |l| l.user_id == current_user.id }
         i.fas.fa-thumbs-up
       - else
         i.far.fa-thumbs-up
