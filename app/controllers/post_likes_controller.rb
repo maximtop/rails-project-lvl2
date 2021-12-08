@@ -19,6 +19,7 @@ class PostLikesController < ApplicationController
 
   def destroy
     @post.likes.delete(params[:id])
+    redirect_to @post
   end
 
   private
