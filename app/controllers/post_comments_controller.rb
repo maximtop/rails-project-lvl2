@@ -4,7 +4,7 @@ class PostCommentsController < ApplicationController
   before_action :set_post
 
   def create
-    @comment = @post.post_comments.build(comment_params)
+    @comment = @post.comments.build(comment_params)
     # FIXME: handle cases when user is undefined
     @comment.user_id = current_user.id
 

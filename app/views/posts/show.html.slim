@@ -23,7 +23,7 @@ legend Comments
 == render('comments_form')
 
 div.pt-4
-  - @post.post_comments.each do |comment|
+  - @post.comments.each do |comment|
     - if comment.user and !comment.has_parent?
       div.card
         div.card-header
