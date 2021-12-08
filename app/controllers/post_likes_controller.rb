@@ -17,13 +17,13 @@ class PostLikesController < ApplicationController
     redirect_to @post
   end
 
+  def destroy
+    @post.likes.delete(params[:id])
+  end
+
   private
 
   def set_post
     @post = Post.find(params[:post_id])
-  end
-
-  def comment_params
-    params.require(:post_like)
   end
 end

@@ -31,4 +31,17 @@ class PostLikesControllerTest < ActionDispatch::IntegrationTest
     post post_likes_url(post_id: post.id)
     assert_equal(post.likes.count, likes_count - 1)
   end
+
+  test 'destroy' do
+    user = users(:one)
+    post = posts(:one)
+
+    sign_in(user)
+
+    likes_count = post.likes.count
+    like = post.likes.last
+
+    delete post_like_url(post_id: post.id, id: like.id)
+    assert_equal(post.likes.count, likes_count - 1)
+  end
 end
