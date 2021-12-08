@@ -96,6 +96,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -124,10 +126,6 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.20.1)
@@ -223,6 +221,9 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
+    slim_lint (0.22.1)
+      rubocop (>= 0.78.0)
+      slim (>= 3.0, < 5.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -276,6 +277,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  faker
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
@@ -288,6 +290,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   slim-rails
+  slim_lint
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
