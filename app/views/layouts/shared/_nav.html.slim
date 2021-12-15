@@ -9,7 +9,7 @@
           = link_to new_post_path, class: 'nav-link' do
             =< 'Create post'
         li.nav-item
-          = link_to destroy_user_session_path, class: 'nav-link', :method => :delete do
+          = link_to destroy_user_session_path, class: 'nav-link', method: :delete do
             =< 'Sign out'
       - else
         li.nav-item
