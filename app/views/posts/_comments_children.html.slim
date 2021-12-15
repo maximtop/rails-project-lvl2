@@ -8,9 +8,15 @@
     p
       = children_comment.content
     hr
-    button.btn.btn-link.text-muted.btn-sm aria-controls="form-wrapper-#{children_comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{children_comment.id}" data-bs-toggle="collapse" type="button"
+    button.btn.btn-link.text-muted.btn-sm [
+      aria-controls="form-wrapper-#{children_comment.id}"
+      aria-expanded="false"
+      data-bs-target="#form-wrapper-#{children_comment.id}"
+      data-bs-toggle="collapse"
+      type="button"
+    ]
       | Reply
-    div.collapse id="form-wrapper-#{children_comment.id}"
+    .collapse id="form-wrapper-#{children_comment.id}"
       .card.card-body
         = render 'comments_form', parent_id: children_comment.id
     - if children_comment.has_children?

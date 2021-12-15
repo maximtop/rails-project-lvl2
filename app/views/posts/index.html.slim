@@ -2,14 +2,14 @@
   = 'Blog'
 
 - @posts.each do |post|
-  div.card.mb-3
-    div.card-body
+  .card.mb-3
+    .card-body
       h5.card-title
         = link_to post do
           = post.title
-      div.card-text.mb-2
+      .card-text.mb-2
         = post.body
-      div.small.mt-auto
+      .small.mt-auto
         span.me-3.text-muted
           = "Liked: #{post.likes.count}"
         span.me-3.text-muted

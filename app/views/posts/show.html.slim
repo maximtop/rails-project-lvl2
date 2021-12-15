@@ -4,7 +4,7 @@
 p
   = @post.body
 
-div.d-flex.flex-row.justify-content-between
+.d-flex.flex-row.justify-content-between
   div
     span.me-2
       = @post.creator.email
@@ -15,28 +15,28 @@ div.d-flex.flex-row.justify-content-between
       = @post.likes.count
     - @like = @post.likes.find { |l| l.user_id == current_user && current_user.id }
     - if @like
-      = link_to post_like_url(post_id: @post.id, id: @like.id) {:action => :destroy}, :method => :delete do
+      = link_to post_like_url(post_id: @post.id, id: @like.id) { action :destroy }, :method => :delete do
         i.fas.fa-thumbs-up
     - else
-      = link_to post_likes_url(post_id: @post.id) {:action => :create}, :method => :post do
+      = link_to post_likes_url(post_id: @post.id) { action :create }, :method => :post do
         i.far.fa-thumbs-up
 
 legend Comments
 == render('comments_form')
 
-div.pt-4
+.pt-4
   - @post.comments.each do |comment|
-    - if comment.user and !comment.has_parent?
-      div.card
-        div.card-header
+    - if comment.user && !comment.has_parent?
+      .card
+        .card-header
           = comment.user.email
-        div.card-body
+        .card-body
           = comment.content
           - if comment.has_children?
-            div.small
+            .small
               = render 'comments_children', children: comment.children
-        div.card-footer
+        .card-footer
           button.btn.btn-link aria-controls="form-wrapper-#{comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{comment.id}" data-bs-toggle="collapse" type="button"
             | Reply
-          div.collapse id="form-wrapper-#{comment.id}"
+          .collapse id="form-wrapper-#{comment.id}"
             = render 'comments_form', parent_id: comment.id
