@@ -15,21 +15,6 @@ class PostLikesControllerTest < ActionDispatch::IntegrationTest
 
     post post_likes_url(post_id: post.id), params: { post_like: {} }
     assert_equal(post.likes.count, likes_count + 1)
-
-    post post_likes_url(post_id: post.id), params: { post_like: {} }
-    assert_equal(post.likes.count, likes_count)
-  end
-
-  test 'should delete likes' do
-    user = users(:one)
-    post = posts(:one)
-
-    sign_in(user)
-
-    likes_count = post.likes.count
-
-    post post_likes_url(post_id: post.id)
-    assert_equal(post.likes.count, likes_count - 1)
   end
 
   test 'destroy' do

@@ -4,15 +4,9 @@ class PostLikesController < ApplicationController
   before_action :check_user, :set_post
 
   def create
-    likes = @post.likes.where(user_id: current_user.id)
-
-    if likes.count.zero?
-      @like = @post.likes.build
-      @like.user_id = current_user.id
-      @like.save
-    else
-      likes.each(&:delete)
-    end
+    @like = @post.likes.build
+    @like.user_id = current_user.id
+    @like.save
 
     redirect_to @post
   end
