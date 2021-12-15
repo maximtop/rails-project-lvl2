@@ -18,7 +18,9 @@ class PostCommentsController < ApplicationController
   private
 
   def check_user
-    unless user_signed_in?
+    if user_signed_in?
+      nil
+    else
       redirect_to user_session_path
     end
   end

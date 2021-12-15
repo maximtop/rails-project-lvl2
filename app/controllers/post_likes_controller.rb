@@ -4,7 +4,6 @@ class PostLikesController < ApplicationController
   before_action :check_user, :set_post
 
   def create
-
     likes = @post.likes.where(user_id: current_user.id)
 
     if likes.count.zero?
@@ -26,7 +25,9 @@ class PostLikesController < ApplicationController
   private
 
   def check_user
-    unless user_signed_in?
+    if user_signed_in?
+      nil
+    else
       redirect_to user_session_path
     end
   end
