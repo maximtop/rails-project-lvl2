@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostCommentsController < ApplicationController
-  before_action :set_post
+  before_action :check_user, :set_post
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -16,6 +16,12 @@ class PostCommentsController < ApplicationController
   end
 
   private
+
+  def check_user
+    unless user_signed_in?
+      redirect_to user_session_path
+    end
+  end
 
   def set_post
     @post = Post.find(params[:post_id])

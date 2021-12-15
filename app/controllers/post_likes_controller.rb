@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class PostLikesController < ApplicationController
-  before_action :set_post
+  before_action :check_user, :set_post
 
   def create
+
     likes = @post.likes.where(user_id: current_user.id)
 
     if likes.count.zero?
@@ -23,6 +24,12 @@ class PostLikesController < ApplicationController
   end
 
   private
+
+  def check_user
+    unless user_signed_in?
+      redirect_to user_session_path
+    end
+  end
 
   def set_post
     @post = Post.find(params[:post_id])
