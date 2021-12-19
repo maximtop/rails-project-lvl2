@@ -11,7 +11,6 @@ class PostCommentsControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
 
-    # TODO: do not let to create comment until signed in
     assert_difference('PostComment.count') do
       post post_comments_url(post_id: post.id), params: { post_comment: { content: 'comment content', parent_id: nil } }
     end

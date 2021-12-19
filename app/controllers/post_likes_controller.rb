@@ -19,11 +19,9 @@ class PostLikesController < ApplicationController
   private
 
   def check_user
-    if user_signed_in?
-      nil
-    else
-      redirect_to user_session_path
-    end
+    return if user_signed_in?
+
+    redirect_to user_session_path
   end
 
   def set_post
