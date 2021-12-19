@@ -12,7 +12,7 @@ class PostCommentsControllerTest < ActionDispatch::IntegrationTest
     sign_in(user)
 
     assert_difference('PostComment.count') do
-      post post_comments_url(post_id: post.id), params: { post_comment: { content: 'comment content', parent_id: nil } }
+      post post_comments_url(post_id: post.id), params: { post_comment: { content: Faker::Lorem.sentence, parent_id: nil } }
     end
   end
 end

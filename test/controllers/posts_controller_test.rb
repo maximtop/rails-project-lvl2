@@ -17,7 +17,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference('Post.count') do
-      post posts_url, params: { post: { title: 'title1', body: 'body1', post_category_id: post_category.id } }
+      post posts_url, params: { post: { title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, post_category_id: post_category.id } }
     end
 
     assert_redirected_to root_url
