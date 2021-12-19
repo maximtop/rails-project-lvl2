@@ -1,6 +1,7 @@
 # Collective blog (rails-project-lvl2)
 
 ![lint](https://github.com/maximtop/rails-project-lvl2/actions/workflows/lint.yml/badge.svg)
+![lint](https://github.com/maximtop/rails-project-lvl2/actions/workflows/test.yml/badge.svg)
 
 ## Hosted on heroku
 [blog-maximtop.herokuapp.com](https://blog-maximtop.herokuapp.com/)
