@@ -1,6 +1,6 @@
 .navbar.navbar-expand-lg.navbar-dark.bg-dark
-  a.navbar-brand(href='/')
-    = 'Collective Blog'
+  = link_to root_path, class: 'navbar-brand' do
+    = 'Collective blog'
 
   .collapse.navbar-collapse
     ul.navbar-nav.ms-auto
