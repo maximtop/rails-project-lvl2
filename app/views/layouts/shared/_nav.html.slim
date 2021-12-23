@@ -1,20 +1,20 @@
 .navbar.navbar-expand-lg.navbar-dark.bg-dark
   = link_to root_path, class: 'navbar-brand' do
-    = 'Collective blog'
+    = t('general_title')
 
   .collapse.navbar-collapse
     ul.navbar-nav.ms-auto
       - if user_signed_in?
         li.nav-item
           = link_to new_post_path, class: 'nav-link' do
-            =< 'Create post'
+            =< t('create_post')
         li.nav-item
           = link_to destroy_user_session_path, class: 'nav-link', method: :delete do
-            =< 'Sign out'
+            =< t('sign_out')
       - else
         li.nav-item
           = link_to user_session_path, class: 'nav-link' do
-            =< 'Log in'
+            =< t('log_in')
         li.nav-item
           = link_to new_user_registration_path, class: 'nav-link' do
-            =< 'Sign up'
+            =< t('sign_up')

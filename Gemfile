@@ -44,10 +44,14 @@ gem 'simple_form'
 # Tree like structure of the comments
 gem 'ancestry'
 
+# Localisation
+gem 'rails-i18n', '~> 6.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'i18n-debug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end

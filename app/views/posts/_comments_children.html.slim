@@ -15,7 +15,7 @@
       data-bs-toggle="collapse"
       type="button"
     ]
-      | Reply
+      = t('reply')
     .collapse id="form-wrapper-#{children_comment.id}"
       .card.card-body
         = render 'comments_form', parent_id: children_comment.id

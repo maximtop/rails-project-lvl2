@@ -8,7 +8,7 @@ class PostCommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
+      redirect_to @post, notice: I18n.t('comment_created')
     else
       redirect_to @post
     end

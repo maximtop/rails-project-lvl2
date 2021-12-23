@@ -1,5 +1,5 @@
 = content_for :title do
-  = 'Blog'
+  = t('title')
 
 - @posts.each do |post|
   .card.mb-3
@@ -11,7 +11,7 @@
         = post.body
       .small.mt-auto
         span.me-3.text-muted
-          = "Liked: #{post.likes.count}"
+          = t('liked', count: post.likes.count)
         span.me-3.text-muted
           = time_ago_in_words(post.created_at)
         span.text-muted
