@@ -13,7 +13,7 @@ p
   div
     span.me-2
       = @post.likes.count
-    - @like = @post.likes.find { |l| l.user_id == current_user && current_user.id }
+    - @like = @post.likes.find { |l| current_user ? l.user_id == current_user.id : nil }
     - if @like
       = link_to post_like_url(post_id: @post.id, id: @like.id) { action :destroy }, method: :delete do
         i.fas.fa-thumbs-up
