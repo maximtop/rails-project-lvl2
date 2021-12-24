@@ -24,4 +24,4 @@ jobs:
       - name: Precompile assets
         run: bundle exec rails assets:precompile
       - name: Run tests
-        run: bin/rails test
+        run: make test
