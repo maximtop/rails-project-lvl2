@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_post, only: :show
+  before_action :set_post, :set_like, only: :show
 
   def index
     @posts = Post.all
@@ -27,6 +27,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_like
+    @like = @post.likes.find_by(user_id: current_user)
   end
 
   def post_params
