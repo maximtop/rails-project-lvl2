@@ -11,11 +11,9 @@ class PostLikesControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
 
-    likes_count = post.likes.count
-
     post post_likes_url(post_id: post.id), params: { post_like: {} }
 
-    assert { post.likes.count == likes_count + 1 }
+    assert_not_empty(post.likes.where(post_id: post, user_id: user))
   end
 
   test 'destroy' do
@@ -24,10 +22,10 @@ class PostLikesControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
 
-    likes_count = post.likes.count
     like = post.likes.last
 
     delete post_like_url(post_id: post.id, id: like.id)
-    assert { post.likes.count == likes_count - 1 }
+
+    assert_empty(post.likes.where(post_id: post, user_id: user))
   end
 end
