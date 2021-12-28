@@ -36,6 +36,6 @@ legend Comments
               = render 'comments_children', children: comment.children
         .card-footer
           button.btn.btn-link aria-controls="form-wrapper-#{comment.id}" aria-expanded="false" data-bs-target="#form-wrapper-#{comment.id}" data-bs-toggle="collapse" type="button"
-            | Reply
+            = t('reply')
           .collapse id="form-wrapper-#{comment.id}"
             = render 'comments_form', parent_id: comment.id
