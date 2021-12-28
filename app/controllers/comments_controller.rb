@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PostCommentsController < ApplicationController
+class CommentsController < ApplicationController
   before_action :check_user, :set_post
 
   def create
